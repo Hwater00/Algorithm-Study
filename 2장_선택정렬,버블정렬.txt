@@ -1,0 +1,64 @@
+2강 정렬- 선택 정렬
+백준 2750번 c언어
+#include <stdio.h> 
+
+int main(void){
+	int i, j, min, index, temp;
+	int array[1001];
+	int n;
+	scanf("%d", &n);
+	
+	for(i = 0; i < n; i++){
+		scanf("%d", &array[i]);
+	}
+	
+	for(i=0; i<n; i++){
+		min = 1001;
+		for(j = i; j<n; j++){
+			if(min > array[j]){
+				min = array[j];
+				index = j;
+			}
+		}
+		temp = array[i];
+		array[i] = array[index];
+		array[index] = temp;
+	}
+	
+	for(i = 0; i< n; i++){
+		printf("%d\n", array[i]);
+	}
+}
+
+2강 정렬- 버블 정렬
+백준 2750번 c++
+#include<iostream>
+using namespace std;
+ int main(void) {
+    int n;
+    cin >> n;
+     int * arr = new int[n];
+    for(int i=0; i< n; i++){
+        cin >> arr[i];
+    }
+     //bubble sort.
+    int tmp;
+     for(int i=0 ; i<n; i++){
+        for(int j=0 ; j < n-1-i ; j++){
+             //swap
+            if(arr[j] > arr[j+1]) {
+                tmp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = tmp;
+            }
+         }
+    }
+      for(int i=0; i<n; i++){
+        cout << arr[i] << endl;
+    }
+     delete []arr;
+    return 0;
+}
+
+
+
